@@ -1,0 +1,238 @@
+body{
+  font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.document{
+  width:800px;
+  height:1125px;
+  position:relative;
+  left:50%;
+  transform:translate(-50%,0);
+}
+
+.header{
+  background:#12344d;
+  color:#fff;
+  padding:10px;
+}
+
+.uppercase{
+  text-transform:uppercase;
+}
+
+.header span{
+  font-size:16px;
+}
+
+.body{
+  color:#12344d;
+}
+
+.body .row{
+  margin:0 !important;
+  padding: 0 0 10px 0;
+}
+
+.column2{
+  background:#cccccc24;
+  padding-top:10px;
+}
+
+.intro .about{
+  padding-top:10px;
+  font-size:14px;
+}
+
+.body h5{
+  font-size:15px;
+  margin-top:2px;
+}
+
+.heading {
+  border-bottom: 1px solid #183247;
+}
+
+.contact-details,
+.skills-details,
+.certification-details,
+.technology-details,
+.project-details,
+.achievement-details,
+.education-details {
+  margin-top: 10px;
+}
+
+.contact-data,
+.skill-data{
+  padding-right:3px;
+  margin-bottom:8px;
+}
+
+.contact-data span,
+.skill-data span{
+  font-weight:bold;
+  font-size:10px;
+}
+
+.contact-data p{
+  font-size:12px;
+  word-wrap: break-word;
+}
+
+.skill-data p.ratings{
+  text-align:right;
+  margin:0;
+}
+
+span.fa-star{
+  font-size:15px;
+}
+
+.fa-star.checked {
+  color: orange;
+}
+
+.certifications{
+  margin-top:20px;
+}
+
+.certification-data,
+.technology-data{
+  font-size:12px;
+  padding: 0 5px 5px 13px;
+}
+
+.certification-data .issued-at{
+  padding: 3px;
+  font-weight:bold;
+}
+
+.work-history-details {
+  padding-top: 10px;
+  padding-left: 5px;
+}
+
+ul.work-history-data {
+  padding-left:15px;
+  margin-top:-1px;
+  margin-bottom:-10px;
+}
+
+ul.work-history-data > li{
+  padding-left: 33px;
+  margin-bottom: 40px;
+  list-style:none;
+}
+
+.company-name {
+  font-size: 16px; /* 18/16 -> 18px */
+  font-weight: bold;
+  display: inline;
+  margin-right: 8px;
+}
+
+.position {
+  font-size: 12px;
+  font-weight: bold;
+  text-transform: uppercase;
+  background-color: #ccccccbf;
+  display: inline-block;
+  padding: 0 12px;
+  margin: -5px 8px 0 0 !important;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+}
+
+.durations {
+  float: right;
+  font-style: italic;
+  font-size:12px;
+  margin-top:5px;
+}
+
+.role-description {
+  display:block;
+  margin-top:8px;
+  font-size:14px;
+}
+
+ul.work-history-data > li {
+  position:relative; /* so that pseudoelements are positioned relatively to their "li"s*/
+  /* use padding-bottom instead of margin-bottom.*/ 
+  margin-bottom: 0; /* This overrides previously specified margin-bottom */
+  padding-left:20px;
+  padding-bottom: 40px;
+}
+
+ul.work-history-data > li:after {
+  /* bullets */
+  content:"\25FE";
+  color:#12344d;
+  position: absolute;
+  left: -20px; /*adjust manually*/
+  top: -1px;
+}
+
+ul.work-history-data > li:before {
+  /* lines */
+  content:"";
+  position: absolute;
+  left: -16px; /* adjust manually */
+  border-left: 1px solid #12344d;
+  height: 100%;
+  width: 1px;
+}
+
+ul.work-history-data > li:first-child:before {
+ /* first li's line */
+ top: 10px; /* moves the line down so that it disappears under the bullet. Adjust manually */
+}
+
+ul.work-history-data > li:last-child:before {
+  /* last li's line */
+ height: 10px; /* shorten the line so it goes only up to the bullet. Is equal to first-child:before's top */
+}
+
+.projects-data,
+.achievement-data,
+.education-data{
+  padding-left:15px;
+}
+
+.achievement-data li,
+.education-data li{
+  font-size:12px;
+}
+
+.education-data li p{
+  margin-bottom:0;
+}
+
+.education-data li p:first-child{
+  font-weight:bold;
+}
+
+.education-data li p:last-child{
+  font-style:italic;
+}
+
+.projects-data li{
+  margin-bottom:10px;
+}
+
+.projects-data li p:first-child{
+  font-weight:bold;
+}
+
+.projects-data li p:nth-child(3){
+  font-weight:600;
+  font-style:italic;
+}
+
+.projects-data li p{
+  font-size:12px;
+  margin-bottom:0;
+}
