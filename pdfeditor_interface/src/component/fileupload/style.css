@@ -1,0 +1,43 @@
+.file-preview{
+    display: flex;
+    flex-direction: column;
+}
+
+.file-preview .preview {
+    position: relative;
+    display: inline-flex;
+    justify-content: center;
+}
+
+.file-preview .file-details {
+    text-align: center;
+    font-size: 13px;
+    font-weight: 600;
+    margin-top: 10px;
+}
+
+.file-preview .extension {
+    position: absolute;
+    color: #fff;
+    top: 26px;
+    right: 52%;
+    font-size: 13px;
+    font-weight: 500;
+    text-transform: uppercase;
+}
+
+.no-file-section {
+    height: 50px;
+    text-align: center;
+    line-height: 50px;
+    background: #c7dffd;
+    color: #FFF;
+    font-weight: 600;
+    font-size: 20px;
+    border: 2px dotted #ccc;
+    border-radius: 5px;
+}
+
+.no-file-section p {
+    margin: 0;
+}

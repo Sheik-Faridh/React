@@ -1,0 +1,52 @@
+body,
+#app {
+    width: 100vw;
+    height: 100vh;
+    padding:0;
+    margin:0;
+}
+
+svg{
+    cursor: pointer;
+}
+
+#loader-container {
+    position: absolute;
+    z-index: 9999;
+}
+
+#loader-container div#custom-loader {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#loader-container div#custom-loader.backdrop {
+    background: #696464a3;
+}
+
+#loader-container .loader-message {
+    font-family: "Roboto", sans-serif;
+    margin:20px 0;
+    font-size: 18px;
+    letter-spacing: 1px;
+    font-style: italic;
+}
+
+#loader-container .loader-message div {
+    background: #f6f6f6;
+    padding: 10px;
+    display: inline-block;
+    border-radius: 10px;
+}
+
+#loader-container .loader-message blockquote div::before {
+    content: '\201C';
+}
+
+#loader-container .loader-message blockquote div::after {
+    content: '\201D';
+}
