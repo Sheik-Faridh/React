@@ -9,7 +9,7 @@ const Search = () => {
 
    return (
          <Col span={6}>
-            <Input className={styles.searchInput} size="default" value={inputVal} onChange={changeHandler} placeholder={`Search ${dirName}`} prefix={<SearchOutlined />} /> 
+            <Input className={styles.searchInput} allowClear={true} size="default" value={inputVal} onChange={changeHandler} placeholder={`Search ${dirName}`} prefix={<SearchOutlined />} /> 
          </Col>
    )
 }

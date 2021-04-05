@@ -41,6 +41,7 @@ const Asset = props => {
                                     value={props.asset.type === 'folder' ? assetName : showAssetNameWithoutExt(assetName)} 
                                     onChange={onChangeHandler}
                                     onBlur={onBlur} 
+                                    onPressEnter={onBlur}
                                 />  
                             :  props.asset.type === 'folder' ? assetName : showAssetNameWithoutExt(assetName)
                     } 
