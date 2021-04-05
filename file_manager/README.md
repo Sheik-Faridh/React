@@ -39,7 +39,8 @@ This application mainly uses three library to build the file manager
 Install the dependencies to run the app.
 
 ```sh
-git clone
+git clone https://github.com/Sheik-Faridh/React.git
+cd file_manager
 npm i
 npm start
 ```
