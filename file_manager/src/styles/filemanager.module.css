@@ -1,0 +1,58 @@
+.fileManager {
+    height: 100vh;
+    padding: 40px 80px;
+    user-select: none;
+}
+
+.browserMockup {
+    position: relative;
+    height: 100%;
+    padding: 16px;
+    border-top: 2em solid hsla(0,0%,90.2%,.7);
+    border-radius: 3px 3px 0 0;
+    box-shadow: 0 0.1em 0.5em 0 rgb(0 0 0 / 28%);
+}
+
+.browserMockup::before {
+    position: absolute;
+    top: -1.25em;
+    left: 1em;
+    display: block;
+    width: .5em;
+    height: .5em;
+    background-color: #f44;
+    border-radius: 50%;
+    box-shadow: 0 0 0 2px #f44, 1.5em 0 0 2px #9b3, 3em 0 0 2px #fb5;
+    content: "";
+}
+
+.browserMockup::after {
+    position: absolute;
+    top: -1.6em;
+    left: 5.5em;
+    display: block;
+    width: calc(100% - 6em);
+    height: 1.2em;
+    background-color: #fff;
+    border-radius: 2px;
+    content: "";
+}
+
+.appContainer {
+    border: 1px solid #ccc;
+    height: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.header {
+    height: 30px;
+    margin-bottom: 16px;
+    line-height: 30px;
+    padding: 0 10px;
+    background: #e3e3e3;
+}
+
+.fileRoute {
+    margin: 0 !important;
+}

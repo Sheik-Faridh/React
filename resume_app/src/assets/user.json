@@ -1,0 +1,59 @@
+{
+    "name": "N Sheik Faridh",
+    "designation": "Software Engineer",
+    "contact_details": {
+        "phone": "8825976090",
+        "email": "faridh.nousadh@gmail.com",
+        "location": "Paalavaakkam, Chennai",
+        "github": "https://github.com/Sheik-Faridh",
+        "linkedin": "https://www.linkedin.com/in/sheik-faridh-5694a7137"
+    },
+    "summary": "2.5 years of experience in Web Programming, testing, and design of Responsive Web pages. Experienced with React JS, React Flux, Redux architecture. Experienced in developing web pages using HTML/HTML5, CSS/CSS3, JavaScript, React JS, Redux, JQuery, Bootstrap, Node, Express and Mongo DB.",
+    "skills":{
+        "frontend": ["HTML","CSS","Javascript","jQuery","Bootsrap","React","Redux","SASS","LESS"],
+        "backend": ["Node JS","Express JS", "JAVA"],
+        "database": ["Mongo DB","SQL","MySQL"],
+        "tools": ["SVN","Git","Jenkins"]
+    },
+    "experience": [
+        {
+            "company": "SPS",
+            "designation": "G1: Programmer",
+            "started_at": "09/02/2020",
+            "ended_at": null,
+            "description": [
+                "Developed a web application to reduce the cost of licensed indesign tool",
+                "Changed all Class component to Functional Component in an application with the help of react hooks",
+                "Developed an application to replace the paid library with an open source and free library",
+                "Implemented best practices to JavaScript codebase and teach advanced JavaScript techniques to the team"
+            ],
+            "environments": ["HTML","XML","Javscript","CSS","React","Redux","Redux Thunk","Node JS","Express JS","Mongo DB","SASS","LESS"]
+        },
+        {
+            "company": "Techaffinity",
+            "designation": "Junior Software Engineer",
+            "started_at": "12/03/2018",
+            "ended_at": "08/27/2020",
+            "description": [
+                "<b>Freshworks Certified Marketplace App developer</b>",
+                "Contributing solutions to the Freshworks customers",
+                "Produced clean code for diverse applications"
+            ],
+            "environments": ["HTML","CSS","Javascript","jQuery","React","UI Kit","Node JS","Mongo DB","AWS Lambda","SES","SQS","S3","CloudFront"]
+        }
+    ],
+    "achievements":[
+        "<b>Best Project Model of Civil Engineering</b> in 2017 by TamilNadu State Council for Science and Technology",
+        "<b>District Rank Holder</b>(BCM) in HSC 2013-2014 by District Collector",
+        "Community Champions as <b>Top Contibutor</b> in Freshworks Developer Community by Freshworks",
+        "Mahatma Gandhi ScholarShip for <b>Top 20 of the department</b>"
+    ],
+    "education": [
+        {
+            "degree":"BE",
+            "department":"Civil Engineering",
+            "year":"2014 - 2018",
+            "college":"Kumaraguru College of Technology"
+        }
+    ]
+}
