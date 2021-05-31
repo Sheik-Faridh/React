@@ -1,6 +1,8 @@
-import { useState,useEffect } from 'react';
-import { Avatar, Layout, Card, List, message } from 'antd';
+import { useEffect } from 'react';
+import { useSelector,useDispatch } from 'react-redux';
+import { Avatar, Layout, Card, List } from 'antd';
 import styled from 'styled-components';
+import Actions from './actions';
 import './App.css';
 
 const { Content } = Layout;
@@ -37,10 +39,7 @@ const Container = styled(Card)`
   }
 `;
 
-const handleError = (msg,error) => {
-  console.error(error);
-  message.error(msg);
-}
+
 
 const Post = ({post}) => {
   const color =  `#${Math.floor(Math.random()*16777215).toString(16)}`;
@@ -57,14 +56,12 @@ const Post = ({post}) => {
 
 const App = () => {
 
-  const [list,setList] = useState([]);
+  const list = useSelector(state => state.lists);
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    fetch('https://jsonplaceholder.typicode.com/posts')
-    .then(res => res.json())
-    .then(data => setList(data))
-    .catch(handleError.bind(null,'Failed to get the posts. Please try again.'))
-  },[])
+    dispatch(Actions.updateList());
+  },[dispatch])
 
   return (
     <Layout>
