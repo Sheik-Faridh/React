@@ -5,6 +5,7 @@ import {
 	DBStateInterface,
 } from '../typings/interface';
 
+
 const useDBInit = (
 	props: IndexedDBProps,
 	dispatch: (args: ActionPropsInterface) => void

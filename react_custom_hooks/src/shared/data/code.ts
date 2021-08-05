@@ -72,198 +72,249 @@ export default useCopyText;`;
 
 export const useIndexedDBCode = `
 // useIndexedDB.ts
+const useDBInit = (
+	props: IndexedDBProps,
+	dispatch: (args: ActionPropsInterface) => void
+) => {
+	const { name, version, objectStoresMeta } = props;
+
+	useEffect(() => {
+		let db: any;
+
+		const request = indexedDB.open(name, version);
+
+		request.onupgradeneeded = (event: any): void => {
+			db = event.target.result;
+
+			for (const storeMeta of objectStoresMeta) {
+				// create the object store
+				let store = storeMeta.storeConfig?.keyPath
+					? db.createObjectStore(storeMeta.store, {
+							keyPath: storeMeta.storeConfig.keyPath,
+					  })
+					: db.createObjectStore(storeMeta.store, {
+							keyPath: 'id',
+							autoIncrement: true,
+					  });
+
+				// create an index on the unique property
+				for (const schema of storeMeta.storeSchema) {
+					store.createIndex(schema.name, schema.keyPath, {
+						unique: schema.options.unique,
+					});
+				}
+			}
+
+			dispatch({
+				type: 'DB',
+				payload: {
+					connected: true,
+					instance: db,
+				},
+			});
+		};
+
+		request.onsuccess = (event: any): void => {
+			db = event.target.result;
+
+			dispatch({
+				type: 'DB',
+				payload: {
+					connected: true,
+					instance: db,
+				},
+			});
+		};
+
+		request.onerror = (event: any): void => {
+			console.error('Database error:' + event.target.errorCode);
+
+			dispatch({
+				type: 'DB',
+				payload: {
+					connected: false,
+					instance: null,
+				},
+			});
+		};
+
+		return () => {
+			db && db.close();
+		};
+	}, [name, version]);
+
+	return {
+		name,
+		version,
+	};
+};
+
+const getInitialState = ({
+	name,
+	version,
+}: {
+	name: string;
+	version: number;
+}): DBStateInterface => ({
+	name,
+	version,
+	db: { connected: false, instance: null },
+});
+
+const reducer = (state: DBStateInterface, action: ActionPropsInterface) => {
+	const { type } = action;
+
+	switch (type) {
+		case 'DB':
+			return { ...state, db: action.payload };
+		default:
+			return state;
+	}
+};
+
 const useIndexedDB = (props: IndexedDBProps) => {
+	const { name, version } = props;
+	const [state, dispatch] = useReducer(
+		reducer,
+		getInitialState({ name, version })
+	);
+	useDBInit(props, dispatch);
+	return {
+		state,
+		dispatch,
+	};
+};
 
-    const { name, version, objectStoresMeta } = props;
-
-    useEffect(() => {
-        let db: any;
-
-        const request = indexedDB.open(name, version);
-
-        request.onupgradeneeded = (event: any) => {
-            db = event.target.result;
-
-            for(const storeMeta of objectStoresMeta) {
-                // create the object store 
-                let store = storeMeta.storeConfig?.keyPath ? db.createObjectStore(storeMeta.store, {
-                    keyPath: storeMeta.storeConfig.keyPath
-                }) : db.createObjectStore(storeMeta.store, { keyPath: 'id', autoIncrement: true });
-
-                // create an index on the unique property
-                for(const schema of storeMeta.storeSchema){
-                        store.createIndex(schema.name, schema.keyPath, {
-                            unique: schema.options.unique
-                        });
-                }
-            }
-        };
-
-        request.onerror = (event: any) => {
-            console.error('Database error: ', event.target.errorCode);
-        };
-
-        return () => {
-           db && db.close();
-        }
-    }, [name, version]);
-
-    return { name, version };
-}
-
-export default useIndexedDB;
+export default useIndexedDB
 
 // useDB.ts
 const useDB = () => {
+	const { state } = useContext(IDBContext);
+	const { name, version, db } = state;
 
-    const { name, version } = useContext(IDBContext);
+	const connect = () =>
+		new Promise((resolve, reject) => {
+			const request = indexedDB.open(name, version);
 
-    const connect = () => new Promise((resolve,reject) => {
-        const request = indexedDB.open(name, version);
+			request.onsuccess = (event: any) => {
+				const db = event.target.result;
+				resolve(db);
+			};
 
-        request.onsuccess = (event: any) => {
-            const db = event.target.result;
-            resolve(db);
-        }
+			request.onerror = (event: any) => {
+				reject(event.target.error.message);
+			};
+		});
 
-        request.onerror = (event: any) => {
-            reject(event.target.error.message);
-        };
-    })
-        
-    const create = (storeName: string, data: any): Promise<unknown> => new Promise((resolve, reject) => 
-        connect()
-            .then((db: any) => {
-                const txn = db.transaction([storeName], "readwrite");
-                const store = txn.objectStore(storeName);
-                let request = store.add(data);
-                request.onsuccess = (event: any) => {
-                    resolve(event);
-                };
+	const getStore = (storeName: string, mode: string) => {
+		const txn = db.instance.transaction([storeName], mode);
+		const store = txn.objectStore(storeName);
 
-                request.onerror =  (event:any)  => {
-                    reject(event.target.error.message);
-                };
-            })
-            .catch(reject)
-    );
+		txn.onerror = (event: any): void => {
+			throw new Error('Transaction Failed:' + event.target.error.message);
+		};
 
-    const getEntity = (storeName: string, prop: string, val: any): Promise<unknown> => new Promise((resolve, reject) => 
-        connect()
-            .then((db: any) => {
-                const txn = db.transaction([storeName], "readonly");
-                const store = txn.objectStore(storeName);
-                const index = prop === 'id' ? store : store.index(prop);
-                let query = index.get(val);
-                query.onsuccess = (event: any) => {
-                    resolve(event.target.result);
-                };
+		return store;
+	};
 
-                query.onerror =  (event:any)  => {
-                    reject(event.target.error.message);
-                };
+	const create = (storeName: string, data: any): Promise<unknown> =>
+		new Promise((resolve, reject) => {
+			const store = getStore(storeName, 'readwrite');
+			let request = store.add(data);
+			request.onsuccess = (event: any) => {
+				resolve(event);
+			};
 
-                txn.oncomplete = function () {
-                    db.close();
-                };
-            })
-            .catch(reject)
-    );
+			request.onerror = (event: any) => {
+				reject(event.target.error.message);
+			};
+		});
 
-    const getAllEntities = (storeName: string): Promise<unknown> => new Promise((resolve, reject) => 
-        connect()
-            .then((db: any) => {
-                    //const entities: any[] = [];
-                    const txn = db.transaction([storeName], "readonly");
-                    const store = txn.objectStore(storeName);
+	const getEntity = (
+		storeName: string,
+		prop: string,
+		val: any
+	): Promise<unknown> =>
+		new Promise((resolve, reject) => {
+			const store = getStore(storeName, 'readonly');
+			const index = prop === 'id' ? store : store.index(prop);
+			let query = index.get(val);
+			query.onsuccess = (event: any) => {
+				resolve(event.target.result);
+			};
 
-                    const request = store.getAll();
+			query.onerror = (event: any) => {
+				reject(event.target.error.message);
+			};
+		});
 
-                    request.onsuccess = (event: any) => {
-                        resolve(event.target.result);
-                    }
+	const getAllEntities = (storeName: string): Promise<unknown> =>
+		new Promise((resolve, reject) => {
+			const store = getStore(storeName, 'readonly');
 
-                    request.onerror = (event: any) => {
-                        reject(event.target.error.message);
-                    }
-            
-                    // store.openCursor().onsuccess = (event: any) => {
-                    //     let cursor = event.target.result;
-                    //     if (cursor) {
-                    //         entities.push(cursor.value);
-                    //         // continue next record
-                    //         cursor.continue();
-                    //     }else{
-                    //         resolve(entities);
-                    //     }
-                    // };
+			const request = store.getAll();
 
-                    // close the database connection
-                    txn.oncomplete = function () {
-                        db.close();
-                    };
-            })
-            .catch(reject)
-    );
+			request.onsuccess = (event: any) => {
+				resolve(event.target.result);
+			};
 
-    const updateEntity = (storeName: string, prop: string, val: string,data: any): Promise<unknown> => new Promise((resolve, reject) => 
-        connect()
-            .then((db: any) => {
-                    const txn = db.transaction([storeName], "readwrite");
-                    const store = txn.objectStore(storeName);
+			request.onerror = (event: any) => {
+				reject(event.target.error.message);
+			};
+		});
 
-                    store.openCursor().onsuccess = function(event:any) {
-                        const cursor = event.target.result;
-                        if (cursor) {
-                            if (cursor.value[prop] === val) {
-                                const updateData = {...cursor.value, ...data };
-                                const request = cursor.update(updateData);
-                                request.onsuccess = function(event: any) {
-                                    resolve(event);
-                                };
-                            }else{
-                                cursor.continue();
-                            }
-                        }
-                    }
-            
-                    // close the database connection
-                    txn.oncomplete = function () {
-                        db.close();
-                    };
-            })
-            .catch(reject)
-    );
+	const updateEntity = (
+		storeName: string,
+		prop: string,
+		val: string | number,
+		newData: any
+	): Promise<unknown> =>
+		new Promise((resolve, reject) => {
+			const store = getStore(storeName, 'readwrite');
 
-    const deleteEntity = (storeName: string, id: any): Promise<unknown> => new Promise((resolve, reject) => 
-        connect()
-            .then((db: any) => {
-                const txn = db.transaction([storeName], "readwrite");
-                const store = txn.objectStore(storeName);
-                let query = store.delete(id);
-                query.onsuccess = (event: any) => {
-                    resolve(event);
-                };
+			const index = prop === 'id' ? store : store.index(prop);
+			let query = index.get(val);
+			query.onsuccess = (event: any) => {
+				const data = event.target.result || {};
 
-                query.onerror =  (event:any)  => {
-                    reject(event.target.error.message);
-                };
+				const req = store.put({ ...data, ...newData });
 
-                txn.oncomplete = function () {
-                    db.close();
-                };
-            })
-            .catch(reject)
-    );
+				req.onsuccess = (event: any): void => {
+					resolve(event.target.result);
+				};
 
-    return {
-        create,
-        getAllEntities,
-        getEntity,
-        updateEntity,
-        deleteEntity
-    }
-}
+				req.onerror = (event: any): void => {
+					reject(event.target.error.message);
+				};
+			};
+
+			query.onerror = (event: any) => {
+				reject(event.target.error.message);
+			};
+		});
+
+	const deleteEntity = (storeName: string, id: any): Promise<unknown> =>
+		new Promise((resolve, reject) => {
+			const store = getStore(storeName, 'readwrite');
+			let query = store.delete(id);
+			query.onsuccess = (event: any) => {
+				resolve(event);
+			};
+
+			query.onerror = (event: any) => {
+				reject(event.target.error.message);
+			};
+		});
+
+	return {
+		db,
+		create,
+		getAllEntities,
+		getEntity,
+		updateEntity,
+		deleteEntity,
+	};
+};
 
 export default useDB;`;
 
