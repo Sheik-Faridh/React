@@ -1,0 +1,94 @@
+.hooks-container.flex-center {
+	display: flex;
+	width: 100vw;
+	min-height: 100vh;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: center;
+	padding-top: 40px;
+	background: #00151f;
+}
+
+.hooks-container .image-container {
+	width: 200px;
+	height: 125px;
+	margin-bottom: 15px;
+	box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+}
+
+.hooks-container .image-container img {
+	width: 100%;
+	height: 100%;
+}
+
+.hooks-container .app-title {
+	color: #fff;
+	font-size: 40px;
+	margin-top: 40px;
+}
+
+.hooks-container .ant-space-horizontal {
+	justify-content: center;
+}
+
+.hooks-container .hooks-card {
+	width: 280px;
+	height: 360px;
+	background-size: cover;
+	transition: all 0.5s;
+	border-radius: 15px;
+}
+
+.hooks-container .hooks-card:hover {
+	transform: translateY(20px);
+}
+
+.hooks-container .hooks-card .ant-card-body {
+	padding: 15px;
+	width: 100%;
+	height: 100%;
+	border-radius: 15px;
+	transition: all 0.5s;
+}
+
+.hooks-container .hooks-card .ant-card-body:hover {
+	background-color: rgba(0, 0, 0, 0.49);
+}
+
+.hooks-container .hooks-card .ant-card-body .ant-card-meta-title {
+	font-size: 25px;
+	color: #fff;
+	margin: 0;
+}
+
+.hooks-container .hooks-card .ant-card-body .ant-card-meta-description {
+	font-size: 15px;
+	color: #fff;
+	opacity: 0;
+}
+
+.hooks-container .hooks-card .ant-card-body:hover .ant-card-meta {
+	transition: all 0.6s;
+	transform: translateY(60px);
+}
+
+.hooks-container .hooks-card .ant-card-body:hover .ant-card-meta-description {
+	transition: all 1.5s;
+	opacity: 1;
+}
+
+.hooks-container .hooks-link {
+	display: block;
+	width: fit-content;
+	padding: 3px 5px;
+	margin-top: 5px;
+	background: #fff;
+	color: #12344d;
+	font-weight: 500;
+	border-radius: 5px;
+}
+
+.hooks-container .hooks-link:hover {
+	background: #cfdfd7;
+	color: #12344d;
+}

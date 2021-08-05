@@ -1,0 +1,202 @@
+.back-btn {
+	position: absolute;
+	cursor: pointer;
+	top: 10px;
+	left: 20px;
+	font-weight: 400;
+	color: #12344d;
+	font-size: 16px;
+}
+
+.back-btn a {
+	color: #12344d;
+}
+
+.back-btn:hover {
+	color: #1890ff;
+}
+
+.back-btn::before {
+	content: '\2190';
+	font-size: 30px;
+	margin-bottom: 5px;
+}
+
+.hook-data-container.flex-container {
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	padding: 15px;
+}
+
+.hook-data-container .image-wrapper {
+	width: 300px;
+	height: 200px;
+	box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+}
+
+.hook-data-container .image-wrapper img {
+	width: 100%;
+	height: 100%;
+}
+
+.hook-data-container .title {
+	margin-top: 15px;
+	font-size: 24px;
+	color: #12344d;
+}
+
+.hook-data-container .hooks-content {
+	margin-bottom: 15px;
+}
+
+.hook-data-container .hooks-content p {
+	color: #12344d;
+	font-weight: 400;
+	font-size: 16px;
+}
+
+.hook-data-container .ant-space-horizontal {
+	justify-content: center;
+}
+
+.hook-data-container .code-container {
+	position: relative;
+}
+
+.hook-data-container .code-container .source-code-link {
+	position: absolute;
+	right: 0;
+	margin: 10px;
+}
+
+.hook-data-container .code-container .source-code-link a {
+	color: #fff;
+	font-size: 16px;
+}
+
+.hook-data-container .code-container .source-code-link a:hover {
+	color: #1890ff;
+	text-decoration: underline;
+}
+
+.hook-data-container .code-container pre {
+	padding: 30px !important;
+	border-radius: 10px;
+	box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
+		rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+}
+
+.hook-data-container .demo-container {
+	margin: 0 30px;
+}
+
+.hook-data-container .demo-container .break-point-wrapper,
+.hook-data-container .demo-container .network-status-wrapper {
+	background: #cfdff7;
+	width: 250px;
+	height: 250px;
+	line-height: 250px;
+	box-shadow: 0px 7px 10px rgb(0 0 0 / 50%);
+	text-align: center;
+}
+
+.hook-data-container .demo-container .break-point-wrapper .break-point,
+.hook-data-container .demo-container .network-status-wrapper .network-status {
+	font-size: 55px;
+	color: #12344d;
+	font-weight: 500;
+}
+
+.hook-data-container .demo-container .copy-text-wrapper {
+	height: 250px;
+	width: 300px;
+	line-height: 250px;
+	background: #cadbf9;
+	text-align: center;
+	box-shadow: 0px 7px 10px rgb(0 0 0 / 50%);
+	border-radius: 15px;
+}
+
+.hook-data-container .demo-container .scroll-container,
+.hook-data-container .demo-container .mouse-point-wrapper {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	width: 300px;
+	height: 300px;
+	background: #deedf5;
+	box-shadow: 0px 7px 10px rgb(0 0 0 / 50%);
+}
+
+.hook-data-container .demo-container .scroll-container pre,
+.hook-data-container .demo-container .mouse-point-wrapper pre {
+	color: #12344d;
+	font-weight: 800;
+}
+
+.hook-data-container .demo-container .scroll-container .checkbox-container {
+	margin: 10px 0;
+}
+
+.hook-data-container .demo-container .scroll-container .label {
+	color: #12344d;
+	font-weight: 500;
+}
+
+.hook-data-container
+	.demo-container
+	.scroll-container
+	.checkbox-container
+	label {
+	color: #12344d;
+	margin-left: 10px;
+}
+
+.hook-data-container .demo-container .indexed-db-container {
+	width: 550px;
+	max-width: 550px;
+	background: #ebf1fc;
+	padding: 20px;
+	border-radius: 15px;
+	box-shadow: 0px 7px 10px rgb(0 0 0 / 50%);
+}
+
+.hook-data-container .demo-container .indexed-db-container form label {
+	color: #12344d;
+	font-weight: 500;
+	margin-bottom: 5px;
+}
+
+.hook-data-container .demo-container .indexed-db-container form button {
+	margin: 0 10px;
+}
+
+.hook-data-container .demo-container .indexed-db-container form .error-msg {
+	color: #f00;
+	font-size: 14px;
+}
+
+.hook-data-container .demo-container .indexed-db-container .record-container {
+	margin-top: 20px;
+}
+
+.hook-data-container
+	.demo-container
+	.indexed-db-container
+	.record-container
+	table {
+	width: 100%;
+	border-collapse: separate;
+}
+
+.hook-data-container
+	.demo-container
+	.indexed-db-container
+	.record-container
+	table
+	td
+	button {
+	margin: 0 5px;
+}

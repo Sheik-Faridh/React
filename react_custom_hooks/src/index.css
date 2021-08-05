@@ -1,0 +1,106 @@
+body {
+	margin: 0;
+	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+		'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+		sans-serif;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+code {
+	font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+		monospace;
+}
+
+h1 {
+	color: #002540;
+}
+
+.mb-10px {
+	margin-bottom: 10px;
+}
+
+.text-white {
+	color: #fff;
+}
+
+.text-center {
+	text-align: center;
+}
+
+.app {
+	position: relative;
+}
+
+input:not([type='checkbox']) {
+	width: 100%;
+	padding: 5px;
+	font-weight: 400;
+	border-radius: 5px;
+	background-color: #fff;
+	border: 1px solid rgb(207, 215, 223);
+	outline: none;
+}
+
+input:not([type='checkbox']):not(.error):hover {
+	border: 1px solid rgb(71, 88, 103);
+	transition: all 0.2s linear 0s;
+}
+
+input:not([type='checkbox']):not(.error):focus {
+	outline: none;
+	background: rgb(255, 255, 255);
+	border: 1px solid transparent;
+	box-shadow: rgb(44 92 197) 0px 0px 0px 2px;
+}
+
+input:not([type='checkbox']).error {
+	border-color: rgb(215, 45, 48);
+}
+
+button.custom {
+	padding: 4px 8px;
+	border-radius: 5px;
+	cursor: pointer;
+	background-color: #f3f5f7;
+	color: #12344d;
+	font-weight: 500;
+	border: 1px solid #cfd7df;
+	outline: none;
+	background-image: linear-gradient(to bottom, #fff, #f3f5f7);
+}
+
+button.custom:hover {
+	background-image: none;
+}
+
+button.primary {
+	min-width: 100px;
+	padding: 4px 8px;
+	border-radius: 5px;
+	cursor: pointer;
+	background-color: #264966;
+	color: #fff;
+	font-weight: 500;
+	outline: none;
+	border: 1px solid #264966;
+	background-image: linear-gradient(to bottom, #264966, #12344d);
+}
+
+button.primary:hover {
+	background-color: #12344d;
+	background-image: none;
+}
+
+button.danger {
+	cursor: pointer;
+	color: #fff;
+	background-color: #d72d30;
+	border: 1px solid #c82124;
+	background-image: linear-gradient(to bottom, #d72d30, #c82124);
+}
+
+button.danger:hover {
+	background-color: #c82124;
+	background-image: none;
+}
