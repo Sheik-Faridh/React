@@ -49,7 +49,7 @@ const Hooks = () => {
 				<Space size={[20, 20]} wrap align='start'>
 					<div className='code-container'>
 						<div className='source-code-link'>
-							<a href={hooksData.link}>view full code</a>
+							<a href={hooksData.link} target='_blank'>view full code</a>
 						</div>
 						<SyntaxHighlighter
 							language='typescript'
