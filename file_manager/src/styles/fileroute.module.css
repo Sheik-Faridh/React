@@ -1,63 +1,63 @@
 .navigationWrapper {
-    text-align: center;
-    height: 34px;
-    line-height: 34px;
+	text-align: center;
+	height: 34px;
+	line-height: 34px;
 }
 
 .navigationWrapper > * {
-    margin: 0 5px;
+	margin: 0 5px;
 }
 
 .selectionContainer {
-    outline: none;
+	outline: none;
 }
 
 .selectionWrapper {
-    display: flex;
-    position: absolute;
-    width: 96.7%;
-    padding: 5px 10px;
-    margin-right: 5px;
-    height: 32px;
-    line-height: 32px;
-    border: 1px solid #ccc;
-    background: #fff;
-    z-index: 2;
-    outline: none;
+	display: flex;
+	position: absolute;
+	width: 96.7%;
+	padding: 5px 10px;
+	margin-right: 5px;
+	height: 32px;
+	line-height: 32px;
+	border: 1px solid #ccc;
+	background: #fff;
+	z-index: 2;
+	outline: none;
 }
 
 .searchInput {
-    height: 34px;
-    line-height: 34px;
+	height: 34px;
+	line-height: 34px;
 }
 
 .treeWrapper {
-    width: 100%;
-    position: absolute;
+	width: 100%;
+	position: absolute;
 }
 
 .assetListContainer {
-    height: calc(100% - 120px);
-    padding-left: 40px;
-    margin: 20px 10px;
-    outline: none;
+	height: calc(100% - 120px);
+	padding-left: 40px;
+	margin: 20px 10px;
+	outline: none;
 }
 
 .assetWrapper {
-    display: flex;
-    width: 100%;
-    max-width: 100px;
-    flex-direction: column;
-    justify-content: center;
-    z-index: 2;
-    border-radius: 3px;
+	display: flex;
+	width: 100%;
+	max-width: 100px;
+	flex-direction: column;
+	justify-content: center;
+	z-index: 2;
+	border-radius: 3px;
 }
 
 .selectedAssetWrapper {
-    background: #bddef6;
+	background: #bddef6;
 }
 
 .assetInput {
-    margin: 0;
-    padding: 2px !important;
+	margin: 0;
+	padding: 2px !important;
 }
