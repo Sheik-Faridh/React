@@ -1,0 +1,7 @@
+const types = {
+  OPEN_QRCODE_MODAL: 'OPEN_QRCODE_MODAL',
+  CLOSE_MODAL: 'CLOSE_MODAL',
+  OPEN_LOGOUT_POPUP: 'OPEN_LOGOUT_POPUP',
+};
+
+export default types;

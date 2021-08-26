@@ -1,0 +1,184 @@
+:root {
+  --input-border-color: rgb(207, 215, 223);
+  --input-bg: rgb(255, 255, 255);
+  --input-hover-border-color: rgb(71, 88, 103);
+  --input-focus-bg: rgb(255, 255, 255);
+  --input-focus-color: rgb(44 92 197);
+  --btn-primary-bg: #264966;
+  --btn-primary-color: #fff;
+  --btn-primary-bg-dark: #12344d;
+  --btn-secondary-bg: #fff;
+  --btn-secondary-bg-dark: #f3f5f7;
+  --btn-secondary-border: #cfd7df;
+  --btn-secondary-border-active: #ebeff3;
+  --btn-danger-bg: #d72d30;
+  --btn-danger-bg-dark: #c82124;
+  --btn-danger-border: #c82124;
+  --active-box-shadow: inset 0 0 4px 0 rgba(0, 0, 0, 0.25);
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.h-fit {
+  height: max-content;
+}
+
+.required::after {
+  content: '*';
+  margin-left: 4px;
+  color: #f00;
+}
+
+nav {
+  background-color: var(--btn-primary-bg-dark);
+}
+
+li.ant-timeline-item.ant-timeline-item-last {
+  padding-bottom: 0;
+}
+
+li.ant-timeline-item-last > .ant-timeline-item-content {
+  min-height: max-content;
+}
+
+.appLoader.ant-spin-nested-loading {
+  background: #dfe4e8;
+}
+
+.appLoader.ant-spin-nested-loading > div > .ant-spin {
+  top: 50%;
+  left: 50%;
+  height: max-content;
+  transform: translate(-50%, -50%);
+}
+
+.appLoader.ant-spin-nested-loading > div > .ant-spin > svg {
+  display: inline-block;
+}
+
+.appLoader.ant-spin-nested-loading > div > .ant-spin > .ant-spin-text {
+  display: block;
+  position: static;
+  font-size: 22px;
+  padding-top: 10px;
+  color: #013f6d;
+  font-weight: 600;
+}
+
+.appLoader .ant-spin-blur {
+  opacity: 0;
+}
+
+.space-color {
+  color: #0a1821;
+  font-family: 'Gill Sans', sans-serif;
+}
+
+.ant-table-thead > tr > th,
+.ant-table-tbody > tr > td,
+.ant-table tfoot > tr > th,
+.ant-table tfoot > tr > td {
+  padding: 8px 8px;
+}
+
+.ant-table-thead > tr > th {
+  background-image: linear-gradient(
+    to bottom,
+    var(--btn-secondary-bg),
+    var(--btn-secondary-bg-dark)
+  );
+}
+
+.ant-table-tbody > tr.ant-table-row:hover > td {
+  background: #f7fafc;
+}
+
+.ant-table-tbody > tr > td {
+  color: rgb(79 90 100);
+  background-color: #fff;
+  font-weight: 600;
+  font-size: 13px;
+  text-transform: capitalize;
+}
+
+.corner-frame {
+  background: linear-gradient(to right, #6b7280 3px, transparent 3px) 0 0,
+    linear-gradient(to right, #6b7280 3px, transparent 3px) 0 100%,
+    linear-gradient(to left, #6b7280 3px, transparent 3px) 100% 0,
+    linear-gradient(to left, #6b7280 3px, transparent 3px) 100% 100%,
+    linear-gradient(to bottom, #6b7280 3px, transparent 3px) 0 0,
+    linear-gradient(to bottom, #6b7280 3px, transparent 3px) 100% 0,
+    linear-gradient(to top, #6b7280 3px, transparent 3px) 0 100%,
+    linear-gradient(to top, #6b7280 3px, transparent 3px) 100% 100%;
+
+  background-repeat: no-repeat;
+  background-size: 20px 20px;
+}
+
+.ant-picker-input input::placeholder {
+  color: #e5e7eb;
+  font-weight: 500;
+}
+
+.ant-select .ant-select-selector:hover,
+.ant-picker:hover {
+  border: 1px solid var(--input-hover-border-color) !important;
+  transition: all 0.2s linear 0s;
+}
+
+.ant-select-focused.ant-select .ant-select-selector,
+.ant-picker-focused {
+  outline: none;
+  background: var(--input-focus-bg) !important;
+  border: 1px solid transparent !important;
+  box-shadow: var(--input-focus-color) 0px 0px 0px 2px !important;
+}
+
+.ant-select-dropdown .ant-select-item-option-active {
+  background: #f3f5f7 !important;
+}
+
+.ant-select-dropdown .ant-select-item-option-selected,
+.ant-picker-cell-in-view.ant-picker-cell-selected .ant-picker-cell-inner,
+.ant-picker-cell-in-view.ant-picker-cell-range-start .ant-picker-cell-inner,
+.ant-picker-cell-in-view.ant-picker-cell-range-end .ant-picker-cell-inner,
+.ant-picker-cell-selected .ant-picker-calendar-date {
+  background: #e5f2fd !important;
+  color: #2c5cc5 !important;
+  font-weight: 500;
+}
+
+.ant-select-selection-item {
+  /* background: #ebeff3 !important; */
+}
+
+.ant-select-selection-item-content {
+  color: #12344d !important;
+  font-size: 13px;
+}
+
+::-webkit-scrollbar {
+  width: 20px;
+  height: 12px;
+}
+::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #b6bfc3;
+  border-radius: 20px;
+  border: 6px solid transparent;
+  background-clip: content-box;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #a8bbbf;
+}

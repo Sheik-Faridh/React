@@ -1,0 +1,18 @@
+.dashboard-container .clock-container {
+  background: rgba(27, 31, 35, 0.05);
+}
+
+.dashboard-container .clock-container .clock {
+  font-family: 'Share Tech Mono', monospace;
+  text-align: center;
+}
+
+.dashboard-container .clock-container .clock .time {
+  letter-spacing: 0.05em;
+  font-size: 22px;
+}
+
+.dashboard-container .clock-container .clock .date {
+  letter-spacing: 0.1em;
+  font-size: 11px;
+}
