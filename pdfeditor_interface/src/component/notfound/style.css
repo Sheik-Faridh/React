@@ -1,37 +1,35 @@
-
-.page-notfound{
-    background-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/257418/andy-holmes-698828-unsplash.jpg);
-    background-size: cover;
-    background-repeat: no-repeat;
-    min-height: 100vh;
-    min-width: 100vw;
-    font-family: "Roboto Mono", "Liberation Mono", Consolas, monospace;
-    color: rgba(255,255,255,.87);
+.page-notfound {
+	background-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/257418/andy-holmes-698828-unsplash.jpg);
+	background-size: cover;
+	background-repeat: no-repeat;
+	min-height: 100vh;
+	min-width: 100vw;
+	font-family: 'Roboto Mono', 'Liberation Mono', Consolas, monospace;
+	color: rgba(255, 255, 255, 0.87);
 }
 
-.page-notfound .countUp{
-    display: flex;
-    height: 100vh;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
+.page-notfound .countUp {
+	display: flex;
+	height: 100vh;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
 }
 
 .page-notfound .countUp .number {
-    font-size: 4rem;
-    font-weight: 500;
+	font-size: 4rem;
+	font-weight: 500;
 }
 
 .page-notfound .countUp .number + .text {
-    margin: 0 0 1rem;
+	margin: 0 0 1rem;
 }
 
 .page-notfound .countUp .text {
-    font-weight: 300;
-    text-align: center;
+	font-weight: 300;
+	text-align: center;
 }
 
 .page-notfound .countUp .button-wrapper {
-    margin-top: 20px;
+	margin-top: 20px;
 }
-

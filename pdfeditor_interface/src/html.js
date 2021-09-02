@@ -9,7 +9,7 @@ const getHTMLContent = () => `
         <meta name="keyword" content="Adobe Embed API">
         <meta name="author" content="Sheik Faridh">
         <title>Editor</title>
-        <link rel="icon" href="https://www.spi-global.com/wp-content/uploads/2020/07/cropped-favicon-228-32x32.png" />
+        <link rel="icon" href="https://img.apksum.com/26/com.kmo.pdf.editor/1.6.1/icon.png" />
         <script src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
     </head>
     <body>
@@ -17,8 +17,8 @@ const getHTMLContent = () => `
         <div id="loader-container"></div>
         <div id="app"></div>
     </body>
-    </html>`
+    </html>`;
 
 module.exports = {
-    getHTMLContent
-}
+	getHTMLContent,
+};
